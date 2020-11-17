@@ -1,0 +1,28 @@
+﻿<div>
+    <h3>Стулья</h3>
+    <table>
+        <tr>
+            <td>
+                <p><a href="/Home/GetFile">Скачать прайс</a></p>
+            </td>
+        </tr>
+        <tr>
+            
+            <td>Название</td>
+            <td>Высота</td>
+            <td>Ширина</td>
+            <td>Цена</td>
+        </tr>
+
+        @foreach (var b in ViewBag.Chairs)
+        {
+            <tr>
+                <td>@b.Name</td>
+                <td>@b.Height</td>
+                <td>@b.Width</td>
+                <td>@b.Price</td>
+                <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+            </tr>
+        }
+    </table>
+</div>
