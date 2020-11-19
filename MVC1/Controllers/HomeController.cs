@@ -13,9 +13,13 @@ namespace MVC1.Controllers
         ChairContext db = new ChairContext();
         public ActionResult Index()
         {
-            IEnumerable<Chair> chairs = db.Chairs;
-            ViewBag.Chairs = chairs;
-            return View();
+            return View(db.Chairs);
+        }
+
+        public ActionResult GetName()
+        {
+            string[] names = new string[] { "Стул простой", "Стул не простой"};
+            return View(names);
         }
 
         public ActionResult About()

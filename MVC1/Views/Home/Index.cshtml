@@ -1,28 +1,46 @@
-﻿<div>
-    <h3>Стулья</h3>
-    <table>
-        <tr>
-            <td>
-                <p><a href="/Home/GetFile">Скачать прайс</a></p>
-            </td>
-        </tr>
-        <tr>
-            
-            <td>Название</td>
-            <td>Высота</td>
-            <td>Ширина</td>
-            <td>Цена</td>
-        </tr>
+﻿@model IEnumerable<MVC1.Models.Chair>
 
-        @foreach (var b in ViewBag.Chairs)
-        {
-            <tr>
-                <td>@b.Name</td>
-                <td>@b.Height</td>
-                <td>@b.Width</td>
-                <td>@b.Price</td>
-                <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
-            </tr>
-        }
-    </table>
-</div>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Width)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Height)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Width)
+        </td>
+        <td>
+            @Html.ActionLink("Купить", "Buy", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.Action("GetName")

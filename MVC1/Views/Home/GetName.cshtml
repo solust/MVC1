@@ -1,0 +1,11 @@
+﻿@model IEnumerable<string>
+@{ 
+    Layout = null;
+}
+    <h2>Список стульев</h2>
+<ul>
+    @foreach (string s in Model)
+    {
+        <li>@s</li>
+    }
+</ul>
